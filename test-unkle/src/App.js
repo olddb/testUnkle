@@ -1,35 +1,26 @@
 import './App.css';
 import Tooltip from './Components/Tooltip';
 
-const ContentComponent = () => <div>Tooltip with component content</div>
-
-const propsButton = {
-  type: 'enter',
-  content: 'Tooltip with plain text'
-}
-const propsInputFocus = {
-  type: 'focus',
-  content: <ContentComponent />
-}
-const propsInputBoth = {
-  type: 'both',
-  content: <ContentComponent />
-}
-const badProps = {}
+const ContentComponent = () => (
+  <>
+    Tooltip with component content
+    <button>I'm a button</button>
+  </>
+)
 
 function App() {
   return (
     <div className="App">
-      <Tooltip {...propsButton}>
+      <Tooltip type='enter' content='Tooltip with plain text'>
         <button>Button with Tooltip</button>
       </Tooltip>
-      <Tooltip {...propsInputFocus}>
+      <Tooltip type='focus' content={<ContentComponent />}>
         <input placeholder='Appear only on focus'></input>
       </Tooltip>
-      <Tooltip {...propsInputBoth}>
+      <Tooltip type='both' content={<ContentComponent />}>
         <input placeholder='Appear on mouseEnter and focus'></input>
       </Tooltip>
-      <Tooltip {...badProps}>
+      <Tooltip>
         <button>Bad props</button>
       </Tooltip>
     </div>

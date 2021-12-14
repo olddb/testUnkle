@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './tooltip.css';
 
 // Tooltip Documentation:
 // type: focus => will display tooltip on focus
@@ -25,11 +26,9 @@ const Tooltip = props => {
       {...typeVisible}
     >
       {props.children}
-      {visible &&
-        <>
-          {props.content}
-        </>
-      }
+      <div className={`${visible ? 'tooltip-visible ' : 'tooltip-hidden '}tooltip-content`}>
+        {props.content}
+      </div>
     </div>
   );
 }

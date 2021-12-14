@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Tooltip from './Components/Tooltip';
 
@@ -8,17 +7,14 @@ const propsButton = {
   type: 'enter',
   content: 'Tooltip with plain text'
 }
-
 const propsInputFocus = {
   type: 'focus',
   content: <ContentComponent />
 }
-
 const propsInputBoth = {
   type: 'both',
   content: <ContentComponent />
 }
-
 const badProps = {}
 
 function App() {

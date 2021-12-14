@@ -1,23 +1,41 @@
 import logo from './logo.svg';
 import './App.css';
+import Tooltip from './Components/Tooltip';
+
+const Test = () => <div>Tooltip with html</div>
+
+const propsButton = {
+  type: 'enter',
+  content: 'Tooltip with plain text'
+}
+
+const propsInput = {
+  type: 'focus',
+  content: <Test />
+}
+
+const propsInputBoth = {
+  type: 'both',
+  content: <Test />
+}
+
+const propsMissingProps = {}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Tooltip {...propsButton}>
+        <button>Button with Tooltip</button>
+      </Tooltip>
+      <Tooltip {...propsInput}>
+        <input placeholder='Appear only on focus'></input>
+      </Tooltip>
+      <Tooltip {...propsInputBoth}>
+        <input placeholder='Appear on mouseEnter and focus'></input>
+      </Tooltip>
+      <Tooltip {...propsMissingProps}>
+        <button>Bad props</button>
+      </Tooltip>
     </div>
   );
 }

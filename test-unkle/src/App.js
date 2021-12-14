@@ -2,24 +2,24 @@ import logo from './logo.svg';
 import './App.css';
 import Tooltip from './Components/Tooltip';
 
-const Test = () => <div>Tooltip with html</div>
+const ContentComponent = () => <div>Tooltip with component content</div>
 
 const propsButton = {
   type: 'enter',
   content: 'Tooltip with plain text'
 }
 
-const propsInput = {
+const propsInputFocus = {
   type: 'focus',
-  content: <Test />
+  content: <ContentComponent />
 }
 
 const propsInputBoth = {
   type: 'both',
-  content: <Test />
+  content: <ContentComponent />
 }
 
-const propsMissingProps = {}
+const badProps = {}
 
 function App() {
   return (
@@ -27,13 +27,13 @@ function App() {
       <Tooltip {...propsButton}>
         <button>Button with Tooltip</button>
       </Tooltip>
-      <Tooltip {...propsInput}>
+      <Tooltip {...propsInputFocus}>
         <input placeholder='Appear only on focus'></input>
       </Tooltip>
       <Tooltip {...propsInputBoth}>
         <input placeholder='Appear on mouseEnter and focus'></input>
       </Tooltip>
-      <Tooltip {...propsMissingProps}>
+      <Tooltip {...badProps}>
         <button>Bad props</button>
       </Tooltip>
     </div>

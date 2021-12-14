@@ -1,5 +1,11 @@
 import { useState } from "react";
 
+// Tooltip Documentation:
+// type: focus => will display tooltip on focus
+// type: enter => will display tooltip on mouseEnter
+// type: both  => will display tooltip both on focus and mouseEnter
+// content: the content of the tooltip, handle component, html and plain text
+
 const Tooltip = props => {
   const [visible, setVisible] = useState(false);
 
@@ -20,9 +26,9 @@ const Tooltip = props => {
     >
       {props.children}
       {visible &&
-        <div>
+        <>
           {props.content}
-        </div>
+        </>
       }
     </div>
   );
